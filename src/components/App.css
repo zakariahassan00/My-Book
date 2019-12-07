@@ -1,0 +1,27 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Fira Sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-family: Fira Sans;
+}
+
+ul {
+  list-style: none;
+}
+.app {
+  background-color: #f3f3f3;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #f3f3f3;
+}
