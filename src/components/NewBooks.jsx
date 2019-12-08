@@ -42,8 +42,8 @@ class NewBooks extends Component {
   renderBooks = () => {
     const { allBooks } = this.props;
 
-    return allBooks.data.length > 0 ? (
-      <BooksGrid books={allBooks.data} />
+    return allBooks.data.count > 0 ? (
+      <BooksGrid books={allBooks.data.book} />
     ) : (
       <NotFound />
     );

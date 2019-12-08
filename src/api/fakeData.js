@@ -1566,7 +1566,7 @@ export const allBooks = [
 export const newBooks = [
   {
     title: "AI Blueprints",
-    subtitle: "How to build and deploy AI business projects",
+    a: "How to build and deploy AI business projects",
     isbn13: "9781788992879",
     price: "$31.99",
     image: "https://itbook.store/img/books/9781788992879.png",
@@ -1574,7 +1574,7 @@ export const newBooks = [
   },
   {
     title: "Data Analysis with Python",
-    subtitle: "A Modern Approach",
+    a: "A Modern Approach",
     isbn13: "9781789950069",
     price: "$31.99",
     image: "https://itbook.store/img/books/9781789950069.png",
@@ -1582,7 +1582,7 @@ export const newBooks = [
   },
   {
     title: "Build Reactive Websites with RxJS",
-    subtitle: "Master Observables and Wrangle Events",
+    a: "Master Observables and Wrangle Events",
     isbn13: "9781680502954",
     price: "$28.98",
     image: "https://itbook.store/img/books/9781680502954.png",

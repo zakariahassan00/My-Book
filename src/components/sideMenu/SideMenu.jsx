@@ -1,4 +1,7 @@
 import React, { Fragment, PureComponent } from "react";
+import { connect } from "react-redux";
+import { signOut } from "./../../actions/index";
+import { compose } from "recompose";
 import PropTypes from "prop-types";
 import {
   Drawer,
@@ -12,7 +15,6 @@ import {
   ListItemText
 } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import LocalLibraryIcon from "@material-ui/icons/LocalLibrary";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import BookIcon from "@material-ui/icons/Book";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
@@ -40,6 +42,11 @@ class SideMenu extends PureComponent {
 
   handleSideMenuClose = () => {
     this.props.toggleSideMenu(false);
+  };
+
+  logOut = () => {
+    this.handleSideMenuClose();
+    this.props.signOut();
   };
 
   render() {
@@ -102,15 +109,18 @@ class SideMenu extends PureComponent {
               </ListItem>
             </Link>
           ))}
-          {/* Logout button */}
-          <a href="/api/logout">
-            <ListItem className={classes.listItem} button>
-              <ListItemIcon className={classes.whiteIcon}>
-                <ExitToAppIcon />
-              </ListItemIcon>
-              <ListItemText primary="Log Out" />
-            </ListItem>
-          </a>
+
+          {/* Logout */}
+          <ListItem
+            className={classes.listItem}
+            button
+            onClick={() => this.logOut()}
+          >
+            <ListItemIcon className={classes.whiteIcon}>
+              <ExitToAppIcon />
+            </ListItemIcon>
+            <ListItemText primary="Log Out" />
+          </ListItem>
         </List>
       </Drawer>
     );
@@ -123,4 +133,7 @@ SideMenu.propTypes = {
   toggleSideMenu: PropTypes.func.isRequired
 };
 
-export default withStyles(sideMenuStyles)(SideMenu);
+export default compose(
+  withStyles(sideMenuStyles),
+  connect(null, { signOut })
+)(SideMenu);

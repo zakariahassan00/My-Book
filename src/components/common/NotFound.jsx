@@ -8,6 +8,7 @@ const styles = {
     display: "flex",
     minWidth: 300,
     minHeight: 500,
+    padding: 20,
     justifyContent: "center",
     "& h5": {
       display: "inline-block",
@@ -19,7 +20,7 @@ const styles = {
 const NotFound = ({ classes }) => {
   return (
     <div className={classes.notfound}>
-      <Typography variant="h5">
+      <Typography align="center" variant="h5">
         Sorry, this content is not available now
       </Typography>
     </div>

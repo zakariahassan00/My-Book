@@ -33,7 +33,7 @@ const styles = theme => ({
     letterSpacing: 10,
     marginBottom: 50,
     "& p": {
-      marginBottom: 20
+      margin: "20px auto"
     }
   }
 });

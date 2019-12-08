@@ -57,8 +57,8 @@ class AllBooks extends Component {
   renderBooks = () => {
     const { allBooks } = this.props;
 
-    return allBooks.data.length > 0 ? (
-      <BooksGrid books={allBooks.data} />
+    return allBooks.data.count > 0 ? (
+      <BooksGrid books={allBooks.data.book} />
     ) : (
       <NotFound />
     );
@@ -81,7 +81,7 @@ class AllBooks extends Component {
 
           <PaginationBar
             onPageChange={this.handlePageChange}
-            itemsCount={allBooks.data.length}
+            itemsCount={allBooks.data.count}
             currentPage={page}
           />
         </div>

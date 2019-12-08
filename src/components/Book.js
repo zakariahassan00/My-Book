@@ -91,9 +91,11 @@ class Book extends PureComponent {
   render() {
     const { classes, book } = this.props;
     return (
-      <div className={classes.book}>
-        {book.loaded ? this.renderBook() : <Loading />}
-      </div>
+      <Slide in={true} direction="up">
+        <div className={classes.book}>
+          {book.loaded ? this.renderBook() : <Loading />}
+        </div>
+      </Slide>
     );
   }
 }
