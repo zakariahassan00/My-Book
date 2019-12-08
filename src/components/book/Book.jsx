@@ -1,50 +1,14 @@
 import React, { PureComponent, Fragment } from "react";
+import PropTypes from "prop-types";
 import { compose } from "recompose";
 import { connect } from "react-redux";
-import { getBook } from "../actions";
-import Loading from "./common/Loading";
+import { getBook } from "../../actions";
+import Loading from "../common/Loading";
+import AddToFavorites from "../userActions/AddToFavorites";
+import AddToReadList from "../userActions/AddToReadList";
 import Rating from "@material-ui/lab/Rating";
 import { withStyles, CardMedia, Typography, Slide } from "@material-ui/core";
-
-const styles = theme => ({
-  book: {
-    width: "100%",
-    height: "100%",
-    minHeight: 400,
-    maxWidth: 1000,
-    margin: "80px auto",
-    padding: 15,
-    display: "flex",
-    flexWrap: "wrap",
-    backgroundColor: "#fff"
-  },
-  book_img: {
-    width: 250,
-    height: "100%",
-    [theme.breakpoints.only("xs")]: {
-      margin: "auto",
-      width: 200
-    }
-  },
-  media: {
-    height: 375,
-    [theme.breakpoints.only("xs")]: {
-      height: 300
-    }
-  },
-  book_info: {
-    padding: "30px 20px",
-    width: "55%",
-    flexGrow: 1,
-    "& p": {
-      margin: "20px auto"
-    },
-    "& h6 span": {
-      color: "red",
-      fontSize: 18
-    }
-  }
-});
+import { bookStyles } from "./bookStyls";
 
 class Book extends PureComponent {
   state = {};
@@ -55,7 +19,7 @@ class Book extends PureComponent {
   }
 
   renderBook = () => {
-    const { classes, book } = this.props;
+    const { classes, book, match } = this.props;
 
     return (
       <Fragment>
@@ -65,6 +29,8 @@ class Book extends PureComponent {
             image={book.data.image}
             title={book.data.title}
           />
+
+          <AddToReadList bookId={match.params.id} />
         </div>
         <div className={classes.book_info}>
           <Typography variant="h5">{book.data.title}</Typography>
@@ -83,6 +49,10 @@ class Book extends PureComponent {
           </Typography>
 
           <Typography variant="h5">$15.00</Typography>
+
+          <div className={classes.favIcon}>
+            <AddToFavorites bookId={match.params.id} />
+          </div>
         </div>
       </Fragment>
     );
@@ -100,11 +70,17 @@ class Book extends PureComponent {
   }
 }
 
+Book.propTypes = {
+  classes: PropTypes.object.isRequired,
+  book: PropTypes.object.isRequired,
+  getBook: PropTypes.func.isRequired
+};
+
 function mapStateToProps({ book }) {
   return { book };
 }
 
 export default compose(
   connect(mapStateToProps, { getBook }),
-  withStyles(styles)
+  withStyles(bookStyles)
 )(Book);

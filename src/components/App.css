@@ -16,12 +16,12 @@ ul {
   list-style: none;
 }
 .app {
-  background-color: #f3f3f3;
+  background-color: #e9ebee;
   overflow-x: hidden;
 }
 
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: #f3f3f3;
+  background-color: #e9ebee;
 }

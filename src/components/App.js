@@ -7,7 +7,8 @@ import Register from "./auth/Register";
 import AllBooks from "./AllBooks";
 import Footer from "./Footer";
 import Home from "./Home";
-import Book from "./Book";
+import Book from "./book";
+import Profile from "./profile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/all" component={AllBooks} />
         <Route path="/books/:id" component={Book} />
+        <Route path="/profile" component={Profile} />
         <Footer />
       </BrowserRouter>
     </div>

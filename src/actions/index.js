@@ -1,8 +1,13 @@
 import axios from "axios";
 const API = "https://intense-mountain-07471.herokuapp.com/api";
+let token = localStorage.getItem("token");
 
 export const GET_BOOK = "get_book";
 export const GET_BOOKS_ERROR = "get_books_error";
+
+export const fetchingData = () => {
+  return { type: GET_BOOKS_ERROR, payload: "" };
+};
 
 export const getBook = id => async dispatch => {
   const res = await axios.get(`${API}/books/${id}`);
@@ -36,7 +41,6 @@ export const GET_USER = "get_user";
 export const GET_USER_ERROR = "get_user_error";
 
 export const getUser = () => async dispatch => {
-  let token = localStorage.getItem("token");
   if (!token) return dispatch({ type: GET_USER, payload: false });
 
   const res = await axios.get(`${API}/users/me`, {
@@ -94,4 +98,57 @@ export const signOut = () => {
     type: GET_USER,
     payload: false
   };
+};
+
+// ================> User Actions
+export const GET_FAV_LIST = "get_favorites_list";
+export const GET_READ_LIST = "get_read_list";
+export const GET_READING_LIST = "get_reading_list";
+
+export const getFavoritesList = () => async dispatch => {
+  const res = await axios.get(`${API}/books/me/favList`, {
+    headers: { "x-auth-token": token }
+  });
+
+  dispatch({ type: GET_FAV_LIST, payload: res.data });
+};
+
+export const getReadList = () => async dispatch => {
+  const res = await axios.get(`${API}/books/me/readList`, {
+    headers: { "x-auth-token": token }
+  });
+
+  dispatch({ type: GET_READ_LIST, payload: res.data });
+};
+
+export const getReadingList = () => async dispatch => {
+  const res = await axios.get(`${API}/books/me/inReadingList`, {
+    headers: { "x-auth-token": token }
+  });
+
+  dispatch({ type: GET_READING_LIST, payload: res.data });
+};
+
+export const toggleFavorites = content => async dispatch => {
+  const updatedUser = await axios.post(
+    `${API}/books/favList/${content.bookId}`,
+    content,
+    {
+      headers: { "x-auth-token": token }
+    }
+  );
+
+  dispatch({ type: GET_USER, payload: updatedUser.data });
+};
+
+export const toggleReadList = content => async dispatch => {
+  const updatedUser = await axios.post(
+    `${API}/books/readList/${content.bookId}`,
+    content,
+    {
+      headers: { "x-auth-token": token }
+    }
+  );
+
+  dispatch({ type: GET_USER, payload: updatedUser.data });
 };

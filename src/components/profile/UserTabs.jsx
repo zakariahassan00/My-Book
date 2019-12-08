@@ -2,8 +2,8 @@ import React, { PureComponent } from "react";
 import { Typography, Tabs, Tab, Box } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import FavoritesListTab from "./tabs/FavoritesListTab";
-import WatchListTab from "./tabs/WatchListTab";
-import RateListTab from "./tabs/RateListTab";
+import ReadListTab from "./tabs/ReadListTab";
+import ReadingListTab from "./tabs/ReadingListTab";
 
 const styles = theme => ({
   tabs: {
@@ -55,18 +55,18 @@ class UserTabs extends PureComponent {
               onChange={this.handleChange}
               className={classes.tabs}
             >
-              <Tab label="Watch List" />
               <Tab label="Favorites" />
-              <Tab label="Rated" />
+              <Tab label="Read List" />
+              <Tab label="Reading" />
             </Tabs>
             <TabPanel value={value} index={0}>
-              <WatchListTab />
-            </TabPanel>
-            <TabPanel value={value} index={1}>
               <FavoritesListTab />
             </TabPanel>
+            <TabPanel value={value} index={1}>
+              <ReadListTab />
+            </TabPanel>
             <TabPanel value={value} index={2}>
-              <RateListTab />
+              <ReadingListTab />
             </TabPanel>
           </div>
         );

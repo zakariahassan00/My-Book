@@ -1,21 +1,28 @@
 export const profileStyles = theme => ({
   profile: {
     width: "100%",
-    minHeight: "calc(100vh)",
-    marginTop: 80,
-    color: "#fff",
-    [theme.breakpoints.down("xs")]: {
-      marginTop: 20
-    }
+    maxWidth: 1400,
+    minHeight: 600,
+    padding: 20,
+    marginTop: 70,
+    display: "flex",
+    flexWrap: "wrap"
   },
-  profileInfo: {
-    width: "100%",
-    height: "auto",
-    textAlign: "center",
-    marginBottom: 40
-    // [theme.breakpoints.down("xs")]: {
-    //   height: 200
-    // }
+  user_info: {
+    width: 300,
+    height: 400,
+    margin: "10px auto",
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    textAlign: "center"
+  },
+  user_books: {
+    width: "65%",
+    minHeight: 500,
+    margin: 10,
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    flexGrow: 1
   },
   avatar: {
     margin: "20px auto",
