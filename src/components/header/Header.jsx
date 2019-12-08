@@ -107,7 +107,7 @@ class Header extends PureComponent {
         >
           <Toolbar>
             <Typography variant="h5" className={classes.brand}>
-              <Link to="/">My Books</Link>
+              <Link to="/">My Book</Link>
             </Typography>
 
             <Hidden smDown>

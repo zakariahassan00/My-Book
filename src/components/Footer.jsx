@@ -9,23 +9,25 @@ const styles = theme => ({
   footer: {
     width: "100%",
     minHeight: 200,
-    padding: "40px",
+    padding: "40px 20px 20px",
     backgroundColor: "#fff",
-    color: "#000",
-    textAlign: "center"
+    color: "#333",
+    textAlign: "center",
+    "& h3": {
+      padding: 20,
+      letterSpacing: 6
+    }
   },
   socialIcon: {
     width: 45,
     height: 45,
     margin: "0px 25px",
-    color: "#000",
+    color: "#333",
     borderRadius: "50%",
-    border: "2px solid #000",
+    border: "2px solid #333",
     padding: 5,
     cursor: "pointer",
     [theme.breakpoints.down("sm")]: {
-      width: 30,
-      height: 30,
       margin: "0px 15px"
     }
   },
@@ -44,9 +46,7 @@ const Footer = ({ classes }) => {
       <Grid container justify="center">
         <Grid item xs={12} sm={6}>
           <div className={classes.logo}>
-            <Typography variant="h2" component="h2">
-              My Books
-            </Typography>
+            <Typography variant="h3">My Book</Typography>
           </div>
         </Grid>
 
