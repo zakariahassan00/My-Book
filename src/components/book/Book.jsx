@@ -36,16 +36,13 @@ class Book extends PureComponent {
           <Typography variant="h5">{book.data.title}</Typography>
 
           <Typography variant="subtitle2" gutterBottom>
-            by <span>kylie simpson</span>
+            by <span>{book.data.publisher}</span>
           </Typography>
 
-          <Rating name="read-only" value={5} readOnly />
+          <Rating name="read-only" value={book.data.rating} readOnly />
 
           <Typography variant="body1" gutterBottom>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque
-            facilis quo voluptatum nemo incidunt est assumenda odio delectus
-            nesciunt deserunt nobis recusandae esse dolore a fugiat
-            reprehenderit, quasi rerum tenetur!
+            {book.data.desc}
           </Typography>
 
           <Typography variant="h5">$15.00</Typography>

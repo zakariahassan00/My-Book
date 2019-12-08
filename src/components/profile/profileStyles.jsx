@@ -2,7 +2,7 @@ export const profileStyles = theme => ({
   profile: {
     width: "100%",
     maxWidth: 1400,
-    minHeight: 600,
+    minHeight: 400,
     padding: 20,
     marginTop: 70,
     display: "flex",
@@ -10,7 +10,7 @@ export const profileStyles = theme => ({
   },
   user_info: {
     width: 300,
-    height: 400,
+    height: 350,
     margin: "10px auto",
     backgroundColor: "#fff",
     borderRadius: 8,

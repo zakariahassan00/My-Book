@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { compose } from "recompose";
 import { connect } from "react-redux";
 import { getBooks } from "../actions/index";
-import { withStyles, Slide } from "@material-ui/core";
+import { withStyles, Slide, Typography } from "@material-ui/core";
 import BooksGrid from "./common/BooksGrid";
 import SearchBar from "./SearchBar";
 import PaginationBar from "./PaginationBar";
@@ -32,7 +32,9 @@ const styles = theme => ({
     position: "absolute",
     top: "65%",
     left: "50%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
+    color: "#fff",
+    textAlign: "center"
   }
 });
 
@@ -73,6 +75,7 @@ class AllBooks extends Component {
         <div className={classes.allBooks}>
           <div className={classes.hero}>
             <div className={classes.hero_content}>
+              <Typography variant="h4"> Find The Right Book! </Typography>
               <SearchBar onQueryChange={this.handleQueryChange} />
             </div>
           </div>
