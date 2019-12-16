@@ -48,7 +48,7 @@ class AddReadList extends Component {
             fullWidth
             className={classes.button}
             startIcon={<DoneIcon />}
-            onClick={() => this.toggle("remove")}
+            onClick={() => this.toggle("Remove")}
           >
             Added to ReadList
           </Button>
@@ -59,7 +59,7 @@ class AddReadList extends Component {
             fullWidth
             className={classes.button}
             startIcon={<AddIcon />}
-            onClick={() => this.toggle("add")}
+            onClick={() => this.toggle("Add")}
           >
             Add to ReadList
           </Button>

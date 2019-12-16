@@ -47,7 +47,7 @@ class AddToFavorites extends PureComponent {
       />
     ) : (
       <FavoriteBorderIcon
-        onClick={() => this.toggle("add")}
+        onClick={() => this.toggle("Add")}
         className={classes.favorite}
       />
     );

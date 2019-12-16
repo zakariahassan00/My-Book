@@ -131,7 +131,7 @@ export const getReadingList = () => async dispatch => {
 
 export const toggleFavorites = content => async dispatch => {
   const updatedUser = await axios.post(
-    `${API}/books/favList/${content.bookId}`,
+    `${API}/books/favList/${content.id}`,
     content,
     {
       headers: { "x-auth-token": token }
@@ -143,12 +143,13 @@ export const toggleFavorites = content => async dispatch => {
 
 export const toggleReadList = content => async dispatch => {
   const updatedUser = await axios.post(
-    `${API}/books/readList/${content.bookId}`,
-    content,
+    `${API}/books/readList/${content.id}`,
+    `${content}`,
     {
       headers: { "x-auth-token": token }
     }
   );
 
+  console.log(updatedUser);
   dispatch({ type: GET_USER, payload: updatedUser.data });
 };
